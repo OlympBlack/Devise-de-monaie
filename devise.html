@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertisseur de devises</title>
+    <!-- Lien vers Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Style personnalisé -->
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+
+    <!-- Lien vers Bootstrap JS et ses dépendances -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <!-- Script JS pour la conversion -->
+    <script>
+        const rates = {
+            DADA: { EUR: 0.85, USD: 1.10 },
+            EUR: { DADA: 1.18, USD: 1.29 },
+            USD: { DADA: 0.91, EUR: 0.77 }
+        };
+
+        function convertFromDada() {
+            const dadaAmount = parseFloat(document.getElementById("dada").value);
+            if (!isNaN(dadaAmount)) {
+                document.getElementById("euro").value = (dadaAmount * rates.DADA.EUR).toFixed(2);
+                document.getElementById("usd").value = (dadaAmount * rates.DADA.USD).toFixed(2);
+            }
+        }
+
+        function convertFromEuro() {
+            const euroAmount = parseFloat(document.getElementById("euro").value);
+            if (!isNaN(euroAmount)) {
+                document.getElementById("dada").value = (euroAmount * rates.EUR.DADA).toFixed(2);
+                document.getElementById("usd").value = (euroAmount * rates.EUR.USD).toFixed(2);
+            }
+        }
+
+        function convertFromUSD() {
+            const usdAmount = parseFloat(document.getElementById("usd").value);
+            if (!isNaN(usdAmount)) {
+                document.getElementById("dada").value = (usdAmount * rates.USD.DADA).toFixed(2);
+                document.getElementById("euro").value = (usdAmount * rates.USD.EUR).toFixed(2);
+            }
+        }
+
+        // Fonction pour ouvrir les deux liens dans des fenêtres séparées
+        function openLinks() {
+            window.open("comment-ca-marche.html", "_blank");
+            window.open("motivation-du-developpeur.html", "_blank");
+        }
+    </script>
+</body>
+</html>

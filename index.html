@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devise</title>
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/index.css
+    ">
+</head>
+<body>
+    <div class="container converter-container">
+        <h1>Convertisseur de devises</h1>
+
+        <!-- Champs de conversion -->
+        <div class="form-group">
+            <label for="dada">Montant en FCFA :</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><img src="static/img/fcfa.jpg" alt="Drapeau Dada" class="flag"></span>
+                </div>
+                <input type="number" class="form-control" id="fcfa"  oninput="convertFromDada()">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="euro">Montant en € (Euro) :</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><img src="static/img/euro.jpg" alt="Drapeau Europe" class="flag"></span>
+                </div>
+                <input type="number" class="form-control" id="euro">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="usd">Montant en $ (Dollar) :</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><img src="static/img/usd.jpg" alt="Drapeau USA" class="flag"></span>
+                </div>
+                <input type="number" class="form-control" id="usd" oninput="convertFromUSD()">
+            </div>
+        </div>
+
+        <!-- Bouton de conversion 
+        <a href=""><button class="btn btn-convert" disabled>Ma motivation</button></a>
+        <a href=""><button class="btn btn-convert" disabled>comment ça marche</button></a>
+        -->
+
+        <!--Modal Motivation-->
+        <div>
+            <button type="button" class="btn btn-convert" data-bs-toggle="modal" data-bs-target="#motivation" data-bs-whatever="@getbootstrap">Motivation du developpeur</button>
+
+            <div class="modal fade" id="motivation" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Motivation du developpeur</strong></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Je m'appelle <strong>Jules-christ OlympBlack</strong>, couteau suisse du web.</p>
+                    <p>
+                        Après avoir suivi un cours de <strong>JavaScript</strong>, je souhaitais mettre en pratique ce que j'avais appris.
+                        Le développement de cette application de conversion de devises m'a permis de consolider mes compétences en JavaScript et de comprendre
+                        l'importance des algorithmes, des calculs en temps réel et des interfaces utilisateur efficaces.
+                    </p>
+                    <p>
+                        C'est dans ce cadre que je me suis lancé dans ce projet, et aujourd'hui, vous avez entre les mains une application simple, fonctionnelle, 
+                        et prête à être utilisée pour convertir vos devises de manière fluide. Quoi de plus beau que de voir une idée prendre vie et vous être utile ?
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!--<button type="button" class="btn btn-primary">Send message</button>-->
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--Modal comment ça marche-->
+        <button type="button" class="btn btn-convert" data-bs-toggle="modal" data-bs-target="#fonctionnement" data-bs-whatever="@getbootstrap">Comment ça marche</button>
+
+        <div class="modal fade" id="fonctionnement" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"><strong>Comment ça marche</strong></h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Cette application de conversion de devises vous permet de convertir instantanément les montants entre trois monnaies : 
+                        <strong>Fcfa</strong>, <strong>Euro (€)</strong> et <strong>Dollar ($)</strong>. Voici comment elle fonctionne :
+                    </p>
+                    <ul>
+                        <li>Saisissez un montant dans l'un des champs de saisie (Fcfa, Euro, ou Dollar).</li>
+                        <li>Les autres champs sont automatiquement mis à jour pour refléter les conversions selon les taux actuels.</li>
+                        <li>Les taux de conversion sont définis par défaut dans l'application, mais peuvent être modifiés dans une future mise à jour.</li>
+                    </ul>
+                    <p>
+                        L'application est rapide, efficace et facile à utiliser. Vous n'avez qu'à entrer une valeur, et les résultats apparaîtront instantanément dans les autres devises !
+                    </p>
+                    <p>Disons un grand merci à <strong>Jules-christ OlympBlack</strong> le couteau suisse du web</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!--<button type="button" class="btn btn-primary">Send message</button>-->
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pied">
+            <a href="">OlympBlack</a>
+        </div>
+
+
+        <!-- Bouton pour les liens d'informations 
+        <div class="btn-info-group text-center">
+            <button class="btn btn-info btn-info-group" onclick="openLinks()">Plus d'infos</button>
+        </div>-->
+    </div>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/jquery-3.5.1.min.js"></script>
+    <script src="static/js/popper.min.js"></script>
+    <script src="static/js/script.js"></script>
+</body>
+</html>
